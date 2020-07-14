@@ -6,7 +6,7 @@ import { AddDataSet } from '../../../app/model/add-data-set';
 @Component({
   selector: 'app-add-new-analytical-data',
   templateUrl: './add-new-analytical-data.component.html',
-  styleUrls: ['./add-new-analytical-data.component.css']
+  styleUrls: ['./add-new-analytical-data.component.scss']
 })
 
 export class AddNewAnalyticalDataComponent implements OnInit {

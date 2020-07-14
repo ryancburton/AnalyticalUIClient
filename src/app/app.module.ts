@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { AnalyticalDataGraphComponent } from './analyticalData/analytical-data-graph/analytical-data-graph.component';
 import { AddNewAnalyticalDataComponent } from './analyticalData/add-new-analytical-data/add-new-analytical-data.component';
 import { AnalyticalDataSetService } from '../app/services/analytical-data-set.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +20,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     ChartsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     AgGridModule.withComponents([])
   ],
   providers: [AnalyticalDataSetService],
