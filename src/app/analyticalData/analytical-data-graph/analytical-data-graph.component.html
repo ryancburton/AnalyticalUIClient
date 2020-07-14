@@ -1,0 +1,18 @@
+<p>Analytical Data</p>
+<div class="chart-wrapper">
+    <canvas baseChart 
+        [datasets]="lineChartData"  
+        [labels]="lineChartLabels" 
+        [options]="lineChartOptions"
+        [colors]="lineChartColors" 
+        [legend]="lineChartLegend" 
+        [chartType]="lineChartType" 
+        [plugins]="lineChartPlugins">
+    </canvas>
+</div>
+<ag-grid-angular
+    style="width: 1020px; height: 300px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData | async"
+    [columnDefs]="columnDefs">
+</ag-grid-angular>
