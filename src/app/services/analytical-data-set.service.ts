@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { Observable} from 'rxjs';
 
 import { AddDataSet } from '../../app/model/add-data-set';
@@ -17,6 +17,7 @@ export class AnalyticalDataSetService {
   }
 
   GetAnalyticalDataAll() : Observable<AnalyticalDataSet[]> {
+    console.log('Calling GetAnalyticalDataAll');
     return this.http.get<AnalyticalDataSet[]>('/api/AnalyticalData/GetAnalyticalDataAll');
   }
 
@@ -27,11 +28,15 @@ export class AnalyticalDataSetService {
   AddNewGetAnalyticalDataSet(addDataSet: AddDataSet): Observable<any> {
     let httpParams = new HttpParams().append('fileToImport', addDataSet.fileToUpload)
 
-    this.http.post<any>('/api/AnalyticalData/ImportNewDataSet', httpParams,
-     { headers: new HttpHeaders({ 'Content-type': 'application/json; charset=utf-8' })})
-    .subscribe( (val) => { console.log("POST call successful value returned in body", val); })
+    console.log('Importing File:' + addDataSet.fileToUpload);
+        
+    this.http.post<any>('/api/AnalyticalData/ImportNewDataSet/' + addDataSet.fileToUpload, httpParams)
+    .subscribe( (val) => { 
+      console.log("POST call successful value returned in body", val);
+      this.GetAnalyticalDataAll();
+    })
     , response => {console.log("POST call in error", response)};
-    
+        
     return;
     }
 }

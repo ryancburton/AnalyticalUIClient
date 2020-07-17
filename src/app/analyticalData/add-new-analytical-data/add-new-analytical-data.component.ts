@@ -19,6 +19,11 @@ export class AddNewAnalyticalDataComponent implements OnInit {
 
   handleFileInput(files: FileList) {
     this.addDataSet = new AddDataSet(files[0].name);
-    this.analyticalDataSetService.AddNewGetAnalyticalDataSet(this.addDataSet);
+
+    this.analyticalDataSetService.AddNewGetAnalyticalDataSet(this.addDataSet);/*-.subscribe( { complete()  
+      { 
+        this.analyticalDataSetService.GetAnalyticalDataAll();
+        this.analyticalDataSetService.GetAnalyticalMetaDataAll();
+       } } );*/
   }
 }

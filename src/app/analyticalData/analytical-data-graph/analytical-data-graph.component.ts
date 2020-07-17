@@ -24,15 +24,16 @@ export class AnalyticalDataGraphComponent implements OnInit {
   DateTimes: string[] = [];
 
   constructor(private analyticalDataSetService: AnalyticalDataSetService) { 
-    this.AnalyticalData.subscribe(data => { data.forEach( element => { this.Points.push(element.point); }); });
-    this.AnalyticalData.subscribe(data => { data.forEach( element => { this.DateTimes.push(element.dateTime); }); });
-  
+    
     console.log(this.DateTimes);
   }
 
   ngOnInit(): void {
     console.log(this.rowData);
 
+    this.AnalyticalData.subscribe(data => { data.forEach( element => { this.Points.push(element.point); }); });
+    this.AnalyticalData.subscribe(data => { data.forEach( element => { this.DateTimes.push(element.dateTime); }); });
+      
     this.rowData.subscribe(data => console.log(data));
   }
 
